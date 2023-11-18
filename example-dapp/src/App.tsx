@@ -6,7 +6,7 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import type { Adapter } from '@solana/wallet-adapter-base';
 import type { SolanaSignInInput, SolanaSignInOutput } from '@solana/wallet-standard-features';
 import { verifySignIn } from '@solana/wallet-standard-util';
-
+import {TorusWalletAdapter,SolflareWalletAdapter} from '@solana/wallet-adapter-wallets';
 import {
   createSignInData,
   createSignInErrorData,
@@ -48,6 +48,7 @@ export type ConnectedMethods =
     name: string;
     onClick: () => Promise<void>;
   };
+
 
 
 const StatelessApp = () => {
@@ -212,14 +213,12 @@ const StatelessApp = () => {
 // Main Component
 // =============================================================================
 const App = () => {
-  const network = WalletAdapterNetwork.Mainnet;
+  const network = WalletAdapterNetwork.Devnet;
 
   const endpoint = `https://api.mainnet-beta.solana.com`;
 
-  const wallets = useMemo(
-    () => [], // confirmed also with `() => []` for wallet-standard only
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [network]
+  const wallets = useMemo(()=>[new TorusWalletAdapter(),new SolflareWalletAdapter({network})],
+  [network]
   );
 
   const autoSignIn = useCallback(async (adapter: Adapter) => {

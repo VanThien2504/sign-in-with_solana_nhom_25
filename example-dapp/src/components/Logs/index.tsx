@@ -75,18 +75,14 @@ const Logs = React.memo((props: Props) => {
             {publicKey ? (
               // connected
               <>
-                Click a button and watch magic happen...{' '}
-                <span role="img" aria-label="Sparkles Emoji">
-                  ✨
-                </span>
+                Click a button ...{' '}
+                
               </>
             ) : (
               // not connected
               <>
-                Welcome to the Phantom sandbox. Connect to your Phantom wallet and play around...{' '}
-                <span role="img" aria-label="Ghost Emoji">
-                  👻
-                </span>
+                Welcome to the Phantom Box{' '}
+              
               </>
             )}
           </PlaceholderMessage>

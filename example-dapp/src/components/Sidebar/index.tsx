@@ -228,11 +228,7 @@ const Sidebar = React.memo((props: Props) => {
       </Body>
       {/* 😊 💕  */}
       <Tag>
-        Made with{' '}
-        <span role="img" aria-label="Red Heart Emoji">
-          ❤️
-        </span>{' '}
-        by the <a href="https://phantom.app">Phantom</a> team
+        Team SOL25 <a href="https://phantom.app">Phantom</a> on the Top
       </Tag>
     </Main>
   );
